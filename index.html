@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Filmes</title>
+
+    <style>
+        :root {
+            --principal: #102a43;
+            --secundaria: #1e6091;
+            --destaque: #64d2ff;
+            --fundo: #eaf6ff;
+            --texto: #183047;
+            --borda: #b5d5eb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+        }
+
+        header {
+            background-color: var(--principal);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            color: var(--destaque);
+        }
+
+        nav {
+            background-color: var(--secundaria);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--destaque);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #b5d5eb;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--borda);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            outline: 2px solid var(--destaque);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"],
+        input[type="range"] {
+            width: auto;
+        }
+
+        .opcao {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        button {
+            background-color: var(--secundaria);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--principal);
+        }
+
+        footer {
+            background-color: var(--principal);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="inicio">
+        <h1>Mundo dos Filmes</h1>
+        <p>Conte para nós sobre seu gosto cinematográfico!</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#formulario">Formulário</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <main>
+        <form id="formulario">
+
+            <div class="campo">
+                <label for="nome">1. Seu nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">2. Seu e-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="senha">3. Crie uma senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required>
+            </div>
+
+            <div class="campo">
+                <label for="data">4. Data em que assistiu ao último filme</label>
+                <input type="date" id="data" name="data">
+            </div>
+
+            <div class="campo">
+                <label for="filme">5. Qual é seu filme favorito?</label>
+                <input type="search" id="filme" name="filme" placeholder="Buscar filme">
+            </div>
+
+            <div class="campo">
+                <label for="genero">6. Qual gênero você prefere?</label>
+                <select id="genero" name="genero">
+                    <option value="">Escolha um gênero</option>
+                    <option value="acao">Ação</option>
+                    <option value="comedia">Comédia</option>
+                    <option value="terror">Terror</option>
+                    <option value="romance">Romance</option>
+                    <option value="ficcao">Ficção científica</option>
+                    <option value="animacao">Animação</option>
+                    <option value="drama">Drama</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>7. Você gosta de assistir a filmes no cinema?</label>
+                <label class="opcao">
+                    <input type="radio" name="cinema" value="sim">
+                    Sim
+                </label>
+                <label class="opcao">
+                    <input type="radio" name="cinema" value="nao">
+                    Não
+                </label>
+            </div>
+
+            <div class="campo">
+                <label for="nota">8. Que nota você dá para sua experiência com filmes? (0 a 10)</label>
+                <input type="range" id="nota" name="nota" min="0" max="10" value="5">
+            </div>
+
+            <button type="submit">Enviar respostas</button>
+
+        </form>
+    </main>
+
+    <footer id="contato">
+        <p>🎥 Mundo dos Filmes</p>
+        <p>Desenvolvido para fins educacionais</p>
+    </footer>
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Respostas enviadas com sucesso!");
+        });
+    </script>
+
+</body>
+</html>
